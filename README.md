@@ -8,10 +8,10 @@ Mój projekt o wdziêdznej nazwie **The Templar** jest platformówk¹, w której to w
 
 | Klawisz | Akcja |
 | :-----: | :---: |
-| `a`     | **ruch w lewo** |
-| `d`     | **ruch w prawo** |
-| `spacja` | **skok** |
-| *przytrzymany* `Lewy przycisk myszy` | **atak** |
+| `a`     | ruch w lewo |
+| `d`     | ruch w prawo |
+| `spacja` | skok |
+| *przytrzymany* `Lewy przycisk myszy` | atak |
 
 ### Biblioteki 
 
@@ -21,16 +21,16 @@ Mój projekt o wdziêdznej nazwie **The Templar** jest platformówk¹, w której to w
 
 - Dungeon 01
 
-... Fantasy Murica [link](www.fantasymusica.org) 
+...Fantasy Murica
 
 - sword-unsheathe.wav
 
-... artisticdude
+...artisticdude
 
 - die1
 
-... Michel Baradari
+...Michel Baradari
 
 - Coins_Single_04
 
-... Robot Sound Factory [link](www.littlerobotsoundfactory.com)
+...Robot Sound Factory
