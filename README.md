@@ -20,13 +20,17 @@ Mój projekt o wdziêdznej nazwie **The Templar** jest platformówk¹, w której to w
 ### Muzyka i dŸwiêki
 
 - Dungeon 01
+
 ... Fantasy Murica [link](www.fantasymusica.org) 
 
 - sword-unsheathe.wav
+
 ... artisticdude
 
 - die1
+
 ... Michel Baradari
 
 - Coins_Single_04
+
 ... Robot Sound Factory [link](www.littlerobotsoundfactory.com)
