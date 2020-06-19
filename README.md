@@ -15,22 +15,22 @@ Mój projekt o wdziêdznej nazwie **The Templar** jest platformówk¹, w której to w
 
 ### Biblioteki 
 
-**SFML 2.5.1**
+SFML 2.5.1
 
 ### Muzyka i dŸwiêki
 
 - Dungeon 01
 
-...Fantasy Murica
+Fantasy Murica
 
 - sword-unsheathe.wav
 
-...artisticdude
+artisticdude
 
 - die1
 
-...Michel Baradari
+Michel Baradari
 
 - Coins_Single_04
 
-...Robot Sound Factory
+Robot Sound Factory
