@@ -11,13 +11,18 @@ CONFIG(debug, debug|release){
 }
 
 SOURCES += \
-        hitbox.cpp \
+        coin_class.cpp \
+        enemy_class.cpp \
         main.cpp \
+        map_class.cpp \
         platform_class.cpp \
         player_class.cpp
 
 HEADERS += \
+    coin_class.h \
+    enemy_class.h \
     entity.h \
     hitbox.h \
+    map_class.h \
     platform_class.h \
     player_class.h

@@ -4,7 +4,6 @@
 
 class Hitbox{
 public:
-    Hitbox();
     float left, right, top, bottom;
 };
 
