@@ -30,7 +30,7 @@ int main(){
 
     //music
     sf::Music music;
-    music.openFromFile("assets/Music/Dungeon_01.ogg"); //Ambush_in_buch     Dungeon_01     The_Looming_Battle
+    music.openFromFile("assets/Music/Dungeon_01.ogg");
     music.setLoop(true);
     music.setVolume(20.f);
     music.play();
@@ -57,6 +57,7 @@ int main(){
     sf::Texture enemy_tex;
     sf::Texture coin_tex;
     sf::Texture title_tex, you_won_tex, you_died_tex;
+    sf::Texture lives_tex;
 
     player_tex.loadFromFile("assets/Images/the_templar_sheet_complete.png");
     de_castle.loadFromFile("assets/Images/de_castle.png");
@@ -65,8 +66,9 @@ int main(){
     title_tex.loadFromFile("assets/Images/Title_screen.png");
     you_won_tex.loadFromFile("assets/Images/you_won.png");
     you_died_tex.loadFromFile("assets/Images/you_died.png");
+    lives_tex.loadFromFile("assets/Images/lives.png");
 
-    sf::Sprite de_castle_sprite(de_castle), title_screen(title_tex), you_won(you_won_tex), you_died(you_died_tex);
+    sf::Sprite de_castle_sprite(de_castle), title_screen(title_tex), you_won(you_won_tex), you_died(you_died_tex), lives_sprite(lives_tex);;
     de_castle_sprite.setScale(sf::Vector2f(1.5f, 1.5f));
 
     //objects
@@ -88,7 +90,7 @@ int main(){
     enemies.emplace_back(enemy4);
     enemies.emplace_back(enemy5);
 
-
+    //views
     sf::View view(sf::Vector2f(0.f,0.f), sf::Vector2f(700.f, 500.f));
     sf::View view2(sf::Vector2f(500.f, 350.f), sf::Vector2f(1000.f, 700.f));
 
@@ -119,7 +121,7 @@ int main(){
         key_d = sf::Keyboard::isKeyPressed(sf::Keyboard::D);
 
         //player update
-        player.update(key_space, key_a, key_d, mouse_left, level);
+        player.update(key_space, key_a, key_d, mouse_left, level, lives_sprite);
 
         //enemy attacks
         for(auto &a : enemies)
@@ -129,21 +131,22 @@ int main(){
         for(auto &a : coins)
         a.collected(player, coin_collected);
 
+        window.clear(sf::Color(33, 159, 179));
+
         //camera
         if(!enter){
             view.setCenter(sf::Vector2f(player.getPosition().x + (player.size.x / 2.f), player.getPosition().y + (player.size.y / 2.f)));
             window.setView(view);
         }
 
-        window.clear(sf::Color(33, 159, 179));
-
         //drawing on screen
         window.draw(de_castle_sprite);
 
         //drawing player
-        if(player.health > 0)
+        if(player.health > 0){
             window.draw(player);
 
+        }
         //drawing enemies
         for(auto &b :enemies){
             if(b.enemy_health >0)
@@ -153,8 +156,9 @@ int main(){
         for(auto &a : level){
             window.draw(a);
         }
+
         //drawing coins
-        for(auto &b : coins){ // int w mainie coin_counter jak 10 to you won
+        for(auto &b : coins){
             if(!b.collected_){
                 window.draw(b);
             }
@@ -166,6 +170,10 @@ int main(){
                 window.draw(you_won);
             }
         }
+
+        //drawing hp
+        window.draw(lives_sprite);
+
         //drawing lose screen
         if(player.health <= 0){
             window.setView(view2);

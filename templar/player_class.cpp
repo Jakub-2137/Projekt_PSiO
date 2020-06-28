@@ -48,7 +48,7 @@ Player_class::Player_class(float x_, float y_, float w_, float h_, sf::Texture &
     setPosition(x_,y_);
 }
 
-void Player_class::update(bool &key_space,bool &key_a, bool &key_d, bool &mouse_left, std::vector<Platform_class> &level){
+void Player_class::update(bool &key_space, bool &key_a, bool &key_d, bool &mouse_left, std::vector<Platform_class> &level, Sprite &lives_sprite){
 
     if(key_space && on_ground)
         velocity.y = -std::abs(jump_height);
@@ -76,6 +76,7 @@ void Player_class::update(bool &key_space,bool &key_a, bool &key_d, bool &mouse_
     move(0, velocity.y);
     collide(0.f, velocity.y, level);
 
+    show_lives(lives_sprite);
     animate(mouse_left);
 }
 
@@ -175,6 +176,19 @@ void Player_class::attack(bool &mouse_left){
         attacking = false;
     }
 }
+
+void Player_class::show_lives(sf::Sprite &lives_sprite){
+
+    int ctr = 0;
+
+    for(int a = 5; a >= 0; a--){
+        if(health == 70 * a)
+            lives_sprite.setTextureRect(sf::IntRect(0, 0, 290 - 58 * ctr, 66));
+        ctr++;
+    }
+    lives_sprite.setPosition(this->getPosition().x + 130, this->getPosition().y + 260);
+}
+
 
 
 
